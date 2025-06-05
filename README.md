@@ -1,4 +1,4 @@
 # Budget-Meal-Shopper
-ts pmo
+Website using node.js and the Kroger Products API
 
 teto pear sigma
