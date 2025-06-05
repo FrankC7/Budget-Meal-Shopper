@@ -1,5 +1,10 @@
-document.getElementById('searchBtn').addEventListener('click', async () => {
-    const term = document.getElementById('searchTerm').value;
+const searchBtn = document.getElementById('searchBtn');
+const searchTerm = document.getElementById('searchTerm');
+const resultsList = document.getElementById('results');
+
+searchBtn.addEventListener('click', async () => {
+    //gets what the user inputed in the text box
+    const term = searchTerm.value.trim();
 
     if (!term) {
         alert("Please enter a search term.");
@@ -7,8 +12,8 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
     }
 
     try {
-        const res = await fetch(`http://localhost:3000/products?term=${encodeURIComponent(term)}`);
-        const data = await res.json();
+        const response = await fetch(`http://localhost:3000/products?term=${encodeURIComponent(term)}`);
+        const data = await response.json();
 
         const resultsList = document.getElementById('results');
 
@@ -27,6 +32,6 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
 
     } catch (error) {
         console.error('Fetch error:', error);
-        alert('Failed to fetch products. Check console for details.');
+        alert('Failed to fetch products.');
     }
 });

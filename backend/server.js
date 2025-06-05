@@ -18,6 +18,7 @@ app.use(cors());
 let accessToken = null;
 let tokenExpiresat = 0;
 
+//gets kroger api access token
 async function getToken() {
     if (accessToken && Date.now() < tokenExpiresat) {
         return accessToken;
@@ -40,24 +41,31 @@ async function getToken() {
     return accessToken;
 }
 
+//product search from api endpoint
 app.get('/products', async (req, res) => {
+    const searchTerm = req.query.term;
+    const locationId = "01400441";
+
+    if (!searchTerm) {
+        return res.status(400).json({ error: 'Missing search term'});
+    }
+
     try {
         const token = await getToken();
-        const { term = 'milk', locationId = '01400441' } = req.query;
 
         const response = await axios.get('https://api.kroger.com/v1/products', {
             headers: {
                 Authorization: `Bearer ${token}`
             },
             params: {
-                'filter.term': term,
+                'filter.term': searchTerm,
                 'filter.locationId': locationId
             }
         });
 
         res.json(response.data);
     } catch (error) {
-        console.error(error.message);
+        console.error('Error fetching from Kroger API:', error.message);
         res.status(500).json({ error: error.message });
     }
 });
