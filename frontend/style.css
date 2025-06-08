@@ -1,0 +1,140 @@
+:root {
+    /* Colors */
+    --pinkv1: #D46A83;
+    --pinkv2: #FF9DB6;
+    --green: #B8D46A;
+    --white: #FFFFFF;
+    --grey: #D9D9D9;
+
+    --active: #FF9DB6;
+}
+
+html {
+    background-color: var(--pinkv1);
+    font-family: 'Gloria Hallelujah';
+}
+
+/* Fonts */
+.ficon {
+    font-size: 32px;
+    color: var(--white);
+}
+
+.foption {
+    font-size: 24px;
+    color: var(--white);
+}
+
+.ftitle {
+    font-size: 64px;
+    color: var(--white);
+}
+
+.fcontent_title {
+    font-size: 48px;
+    color: var(--white);
+}
+
+.fcontent_text {
+    font-size: 32px;
+    color: var(--white);
+}
+
+/* .gloria-hallelujah-regular {
+  font-family: "Gloria Hallelujah", cursive;
+  font-weight: 400;
+  font-style: normal;
+} */
+
+/* Side Nav Bar */
+.side_nav {
+    background-color: var(--green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-right: 24px;
+    padding-left: 24px;
+
+    width: 250px;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+}
+
+.side_nav_top {
+    text-align: left;
+    color: var(--white);
+}
+
+.icon_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0px;
+}
+
+.side_nav_bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+    gap: 50px;
+    flex: 1;
+}
+
+.option_container {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+}
+
+.option_container > i {
+    flex-shrink: 0;
+    margin-right: 50px;
+}
+
+.option_container > a {
+    flex: 1;
+    text-align: right;
+}
+
+/* Main Content */
+
+.main {
+    height: 100%;
+    margin-left: 298px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* TODO: Add Main Top */
+
+.main_bottom {
+    flex: 1;
+}
+
+.main_content {
+    background-color: var(--pinkv2);
+    color: var(--white);
+    border-radius: 15px;
+}
+
+.page_title {
+    width: 1100px;
+    height: 125px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 64px;
+}
