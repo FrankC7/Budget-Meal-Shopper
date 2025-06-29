@@ -47,6 +47,10 @@ html {
 } */
 
 /* Side Nav Bar */
+.selected {
+    background-color: var(--pinkv2);
+    border-radius: 5px;
+}
 .side_nav {
     background-color: var(--green);
     display: flex;
@@ -93,6 +97,8 @@ html {
     flex-direction: row;
 
     align-items: center;
+
+    padding: 15px;
 }
 
 .option_container > i {
@@ -103,6 +109,7 @@ html {
 .option_container > a {
     flex: 1;
     text-align: right;
+    text-decoration: none;
 }
 
 /* Main Content */
