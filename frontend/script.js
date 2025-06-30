@@ -21,11 +21,24 @@ searchBtn.addEventListener('click', async () => {
         resultsList.innerHTML = '';
 
         if (data.data && data.data.length > 0) {
-            data.data.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = item.description || "No description";
-                resultsList.appendChild(li);
+
+            data.data.forEach((item) => {
+                const card = document.createElement('div');
+                card.className = 'product_card';
+                card.textContent = item.description;
+
+                card.innerHTML = `
+                <img src="${item.image || 'https://dummyimage.com/200x200/cccccc/000000&text=No+Image'}"}" />
+                <div class="info">
+                    <div class="product_name">${item.description || 'Unnamed Product'}</div>
+                    <div class="product_price">${typeof item.price === 'number' ? `$${item.price.toFixed(2)}` : 'Price Unavailable'}</div>
+                    
+                </div>
+            `;
+
+            resultsList.appendChild(card);
             });
+            
         } else {
             resultsList.textContent = '<li>No results found.</li>';
         }

@@ -63,7 +63,32 @@ app.get('/products', async (req, res) => {
             }
         });
 
-        res.json(response.data);
+        const products = response.data.data.map(product => {
+            // Get product images
+            const imageObj = product.images?.find(img => img.perspective === 'front');
+            const largeImage = imageObj?.sizes?.find(s => s.size ==='large');
+            const imageUrl = largeImage ? largeImage.url : null;
+
+            // Get product price (prioritize promotion prices)
+            const productItem = product.items && product.items.length > 0 ? product.items[0] : null;
+            let price = null;
+
+            if (productItem?.price) {
+                price = productItem.price.regular ?? null;
+            }
+
+            // Returns the product info to front end
+            return {
+                description: product.description,
+                image: imageUrl,
+                price: price,
+            };
+        });
+
+        //res.json(response.data);
+        console.log(products);
+        res.json({ data: products });
+
     } catch (error) {
         console.error('Error fetching from Kroger API:', error.message);
         res.status(500).json({ error: error.message });
