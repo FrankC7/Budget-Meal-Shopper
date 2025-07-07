@@ -126,13 +126,21 @@ html {
 /* TODO: Add Main Top */
 
 .main_bottom {
-    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin-top: 88px;
+    gap: 100px;
+    width: 1100px;
 }
 
 .main_content {
     background-color: var(--pinkv2);
     color: var(--white);
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .page_title {
