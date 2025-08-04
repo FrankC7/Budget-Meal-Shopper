@@ -2,9 +2,10 @@
 Website using node.js and the Kroger Products API
 
 To start the website, you need to first run the backend. 
-In the git bash terminal, go into the backend folder using "cd backend"
-Then start the node.js server with "npm start"
+In the terminal, first go into the backend directory using "cd backend".
+Next, start the node.js server with "node server.js"
 
-Next, you can host the index.html file with the live server vscode extension. 
+With the live server vscode extension, host the index.html file and it should open up into the webpage.
 
-teto pear sigma
+In order to search products from the Kroger API, head into the "Create Plan" tab and search for the desired product.
+Any products that fit your search will appear as product cards featuring the product's image, name, and price.
